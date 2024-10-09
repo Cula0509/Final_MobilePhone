@@ -1,0 +1,87 @@
+/* Kiểu cho toàn bộ trang */
+html {
+    scroll-behavior: smooth; /* Cuộn mượt */
+}
+
+body {
+    background-color: #dedede; /* Nền sáng */
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+    display: grid; /* Sử dụng grid layout */
+    grid-template-columns: 1fr; /* Một cột cho giao diện di động */
+    gap: 10px; /* Khoảng cách 10px giữa các hình */
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 1.95em;
+}
+
+h2 {
+    text-align: center;
+}
+
+li {
+    margin-top: 20px;
+}
+
+img {
+    border: 5px solid blue; /* Biên màu xanh */
+    border-radius: 0; /* Không có bo góc cho giao diện di động */
+    width: 100%; /* Chiều rộng đầy đủ */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+}
+
+.label {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Truy vấn media cho giao diện máy tính bảng */
+@media (min-width: 772px) {
+    body {
+        grid-template-columns: repeat(2, 1fr); /* Hai cột cho giao diện máy tính bảng */
+    }
+
+    img {
+        border-radius: 50%; /* Bo góc hình tròn */
+    }
+
+    figure:last-child {
+        grid-column: span 2; /* Hình cuối cùng chiếm cả hai cột */
+    }
+}
+
+/* Truy vấn media cho giao diện màn hình lớn */
+@media (min-width: 992px) {
+    img:nth-child(3n) {
+        grid-column: span 2; /* Mỗi hình thứ ba chiếm cả hai cột */
+    }
+
+    img {
+        border-radius: 0; /* Không có bo góc cho giao diện màn hình lớn */
+    }
+}
+
+/* Truy vấn media cho tùy chọn giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto; /* Loại bỏ cuộn mượt */
+    }
+}
+
+/* Truy vấn media cho chế độ màu tối */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333; /* Nền tối */
+        color: #FFD700; /* Màu chữ sáng */
+    }
+
+    img {
+        background-color: #444; /* Nền tối cho hình ảnh */
+        border-color: black; /* Biên tối */
+    }
+}
